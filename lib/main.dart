@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodprime/screens/main/main_screen.dart';
+import 'package:foodprime/screens/onboarding/onboarding_screen.dart';
 import 'package:foodprime/screens/splash/splash_screen.dart';
 
 void main(){
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: primarySwatch,
       ),
-      home: const SplashScreen(child: MainScreen()),
+      home: const SplashScreen(child: OnboardingScreen()),
     );
   }
 }
