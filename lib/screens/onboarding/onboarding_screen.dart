@@ -6,6 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:foodprime/screens/onboarding/onboarding_entity.dart';
 import 'package:foodprime/theme/style.dart';
 
+import '../../widgets/button_container_widget.dart';
+import '../auth/login_page.dart';
+
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
 
@@ -101,11 +104,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     hasIcon: true,
                     icon: Icons.arrow_forward_ios,
                     onTap: (){
-                      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => LoginScreen()), (route) => false,);
+                      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => LoginPage()), (route) => false,);
                     }
                   ),
-
-              ),
+              ): Container(),
             ],
           ),
         );
