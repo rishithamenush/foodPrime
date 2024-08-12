@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:foodprime/theme/style.dart';
 
+import 'navPages/cart/cart_page.dart';
+import 'navPages/home/home_page.dart';
+import 'navPages/profile/profile_page.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
@@ -28,7 +32,7 @@ class _MainScreenState extends State<MainScreen> {
             BottomNavigationBarItem(icon: Icon(Icons.account_circle_rounded), label: "Account")
           ]
       ),
-      body: _switchPagesOnIndex(_currentPageIndex);
+      body: _switchPagesOnIndex(_currentPageIndex),
     );
   }
   _switchPagesOnIndex(int index){
