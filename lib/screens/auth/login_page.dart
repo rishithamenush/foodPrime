@@ -58,6 +58,7 @@ class _LoginPageState extends State<LoginPage> {
                                 });
                               },
                               value: _rememberMeCheckValue,
+                              activeColor: primaryColorED6E1B,
                             ),
                             const Text("Remember me", style: TextStyle(fontSize: 15),)
                           ],
