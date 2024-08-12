@@ -125,6 +125,9 @@ class _LoginPageState extends State<LoginPage> {
                   },child: const Text("Create account", style: TextStyle(fontSize: 15, color: primaryColorED6E1B),))
                 ],
               ),
+              const SizedBox(
+                height: 10,
+              ),
             ],
           ),
         )
