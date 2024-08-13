@@ -15,15 +15,15 @@ class MyApp extends StatelessWidget {
     const primarySwatch = MaterialColor(
         0xFFED6E1B,
       <int, Color>{
-        50: Color(0xFFED6E1B),
-        100: Color(0xFFED6E1B),
-        200: Color(0xFFED6E1B),
-        300: Color(0xFFED6E1B),
-        400: Color(0xFFED6E1B),
-        500: Color(0xFFED6E1B),
-        600: Color(0xFFED6E1B),
-        700: Color(0xFFED6E1B),
-        800: Color(0xFFED6E1B),
+        50: Color(0xFFFFE0B2),
+        100: Color(0xFFFFCC80),
+        200: Color(0xFFFFB74D),
+        300: Color(0xFFFFA726),
+        400: Color(0xFFFF9800),
+        500: Color(0xFFFB8C00),
+        600: Color(0xFFF57C00),
+        700: Color(0xFFEF6C00),
+        800: Color(0xFFE65100),
         900: Color(0xFFED6E1B),
       }
     );
@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
       title: "Food Prime",
       theme: ThemeData(
         primarySwatch: primarySwatch,
+        scaffoldBackgroundColor: Color(0xFFFFFFFF),
       ),
       home: const SplashScreen(child: OnboardingScreen()),
     );
