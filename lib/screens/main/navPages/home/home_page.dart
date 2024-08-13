@@ -15,48 +15,41 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-        child: Column(
-          children: [
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    width: 150,
-                    height: 50,
-                    child: Image.asset(
-                      "assets/word_app_logo.png",
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            _homeCategoryItemWidget(context,
-                title: "Grocery & Fruits",
-                description: "Order fresh vegetables & fruits anytime, anywhere",
-                image: "assets/home_image_1.png",
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (_) => const GroceryAndFruitMainPage()));
-                }),
-            const SizedBox(height: 20),
-            _homeCategoryItemWidget(context,
-                title: "Foods",
-                description: "Order from your favorite restaurants and home chefs",
-                image: "assets/home_image_2.png",
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => const FoodPage()));
-                }),
-          ],
+      appBar: AppBar(
+        backgroundColor: whiteColor,
+        title: Image.asset(
+          "assets/word_app_logo.png",
+          fit: BoxFit.contain,
+          width: 150,
+          height: 50,
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+          child: Column(
+            children: [
+              _homeCategoryItemWidget(context,
+                  title: "Grocery & Fruits",
+                  description: "Order fresh vegetables & fruits anytime, anywhere",
+                  image: "assets/home_image_1.png",
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => const GroceryAndFruitMainPage()));
+                  }),
+              const SizedBox(height: 20),
+              _homeCategoryItemWidget(context,
+                  title: "Foods",
+                  description: "Order from your favorite restaurants and home chefs",
+                  image: "assets/home_image_2.png",
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => const FoodPage()));
+                  }),
+            ],
+          ),
         ),
       ),
     );
