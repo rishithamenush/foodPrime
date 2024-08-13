@@ -17,6 +17,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: whiteColor,
+        centerTitle: true,
         title: Image.asset(
           "assets/word_app_logo.png",
           fit: BoxFit.contain,
