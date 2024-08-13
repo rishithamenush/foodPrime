@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:foodprime/theme/style.dart';
 
+import 'home_category/grocery_and_fruit/grocery_and_fruit_main_page.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -23,7 +25,7 @@ class _HomePageState extends State<HomePage> {
                 description: "Order fresh vegetables & fruits anytime, anywhere",
                 image: "assets/home_image_1.png",
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => GroceryAndFruitMainPage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const GroceryAndFruitMainPage()));
                 }),
                 
           ],
