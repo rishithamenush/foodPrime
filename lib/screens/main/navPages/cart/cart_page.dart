@@ -20,6 +20,7 @@ class _CartPageState extends State<CartPage> {
     "Masala Pizza": 1,
     "Golden Pizza": 1,
   };
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,38 +39,55 @@ class _CartPageState extends State<CartPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "4 Items in the cart",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            Text(
+              "${_itemQuantities.length} Items in the cart",
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            Column(
-              children: [
-                const SizedBox(height: 25,),
-                _itemCardWidget(
-                    title: "Cheese Pizza",
-                    unitPrice: 23.9,
-                    image: "pizza_popular_5.png"
-                ),
-                const SizedBox(height: 25,),
-                _itemCardWidget(
-                    title: "Browns Pizza",
-                    unitPrice: 63.9,
-                    image: "pizza_popular_2.png"
-                ),
-                // const SizedBox(height: 25,),
-                // _itemCardWidget(
-                //     title: "Masala Pizza",
-                //     unitPrice: 33.2,
-                //     image: "pizza_popular_1.png"
-                // ),
-                // const SizedBox(height: 25,),
-                // _itemCardWidget(
-                //     title: "Golden Pizza",
-                //     unitPrice: 45.3,
-                //     image: "pizza_popular_4.png"
-                // ),
-                // const SizedBox(height: 25,),
-              ],
+            const SizedBox(height: 25,),
+            Expanded(
+              child: ListView.builder(
+                itemCount: _itemQuantities.length,
+                itemBuilder: (context, index) {
+                  String title = _itemQuantities.keys.elementAt(index);
+                  double unitPrice;
+                  String image;
+
+                  // Set the unit price and image based on the title
+                  switch (title) {
+                    case "Cheese Pizza":
+                      unitPrice = 23.9;
+                      image = "pizza_popular_5.png";
+                      break;
+                    case "Browns Pizza":
+                      unitPrice = 63.9;
+                      image = "pizza_popular_2.png";
+                      break;
+                    case "Masala Pizza":
+                      unitPrice = 33.2;
+                      image = "pizza_popular_1.png";
+                      break;
+                    case "Golden Pizza":
+                      unitPrice = 45.3;
+                      image = "pizza_popular_4.png";
+                      break;
+                    default:
+                      unitPrice = 0.0;
+                      image = "";
+                      break;
+                  }
+
+                  return Column(
+                    children: [
+                      _itemCardWidget(
+                        title: title,
+                        unitPrice: unitPrice,
+                        image: image,
+                      ),
+                      const SizedBox(height: 25,),
+                    ],
+                  );
+                },
+              ),
             ),
             const SizedBox(height: 60,),
             const Row(
@@ -103,7 +121,7 @@ class _CartPageState extends State<CartPage> {
             ),
             const SizedBox(height: 30,),
             ButtonContainerWidget(title: "Checkout", onTap: (){
-             Navigator.push(context, MaterialPageRoute(builder: (_) => PaymentScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (_) => PaymentScreen()));
             },),
             const SizedBox(height: 30,),
           ],
