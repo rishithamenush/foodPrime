@@ -32,6 +32,20 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ],
       ),
+      body: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                 Image.asset("assets/user_profile.png"),
+                const SizedBox(width: 10,),
+                Text("Rishitha Menusha", style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
+              ],
+            )
+          ],
+        ),
+      ),
     );
   }
 }
