@@ -10,7 +10,13 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-  int quantity = 1;
+  // Map to track the quantity for each item
+  final Map<String, int> _itemQuantities = {
+    "Cheese Pizza": 1,
+    "Browns Pizza": 1,
+    "Masala Pizza": 1,
+    "Golden Pizza": 1,
+  };
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,38 +33,81 @@ class _CartPageState extends State<CartPage> {
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text("2 Items in the list cart", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-
+            const Text(
+              "4 Items in the cart",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            Column(
+              children: [
+                const SizedBox(height: 25,),
+                _itemCardWidget(
+                    title: "Cheese Pizza",
+                    unitPrice: 23.9,
+                    image: "pizza_popular_5.png"
+                ),
+                const SizedBox(height: 25,),
+                _itemCardWidget(
+                    title: "Browns Pizza",
+                    unitPrice: 63.9,
+                    image: "pizza_popular_2.png"
+                ),
+                // const SizedBox(height: 25,),
+                // _itemCardWidget(
+                //     title: "Masala Pizza",
+                //     unitPrice: 33.2,
+                //     image: "pizza_popular_1.png"
+                // ),
+                // const SizedBox(height: 25,),
+                // _itemCardWidget(
+                //     title: "Golden Pizza",
+                //     unitPrice: 45.3,
+                //     image: "pizza_popular_4.png"
+                // ),
+                // const SizedBox(height: 25,),
+              ],
+            ),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Items",  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold ),),
+                Text("2", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),)
+              ],
+            ),
             const SizedBox(height: 25,),
-
-            _itemCardWidget(
-              title: "Cheese Pizza",
-              price: "23.9",
-              image: "pizza_popular_5.png"
-            )
-
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Items",  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold ),),
+                Text("2", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),)
+              ],
+            ),
           ],
         ),
       ),
     );
   }
 
-  _itemCardWidget({String? title, String? price, String? image}){
+  Widget _itemCardWidget({String? title, double? unitPrice, String? image}) {
+    // Retrieve the quantity for this item from the map
+    int quantity = _itemQuantities[title] ?? 1;
+    double totalPrice = unitPrice! * quantity;
+
     return Container(
       width: double.infinity,
       height: 120,
       decoration: BoxDecoration(
-          color: whiteColor,
-          borderRadius: BorderRadius.circular(8),
-          boxShadow: [
-            BoxShadow(
-                offset: const Offset(2,2),
-                spreadRadius: 2.5,
-                blurRadius: 6.5,
-                color: Colors.grey[300]!
-            )
-          ]
+        color: whiteColor,
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: [
+          BoxShadow(
+            offset: const Offset(2, 2),
+            spreadRadius: 2.5,
+            blurRadius: 6.5,
+            color: Colors.grey[300]!,
+          ),
+        ],
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
@@ -73,29 +122,37 @@ class _CartPageState extends State<CartPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                       Text("$title",  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),),
+                      Text(
+                        "$title",
+                        style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                      ),
                       Container(
                         width: 30,
                         height: 30,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: lightGreyColor
+                          borderRadius: BorderRadius.circular(5),
+                          color: lightGreyColor,
                         ),
-                        child: const Center(child: Icon(Icons.close, color: primaryColorED6E1B,), ),
+                        child: const Center(
+                          child: Icon(Icons.close, color: primaryColorED6E1B,),
+                        ),
                       ),
                     ],
                   ),
-                  const Text("Times Foold"),
+                  const Text("Times Food"),
                   const SizedBox(height: 5,),
-                   Text("\$$price", style: const TextStyle(fontWeight: FontWeight.w600),),
+                  Text(
+                    "\$${totalPrice.toStringAsFixed(2)}",
+                    style: const TextStyle(fontWeight: FontWeight.w600),
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                            if(quantity > 1){
-                              quantity -- ;
+                            if (quantity > 1) {
+                              _itemQuantities["$title"] = quantity - 1;
                             }
                           });
                         },
@@ -106,7 +163,7 @@ class _CartPageState extends State<CartPage> {
                             shape: BoxShape.circle,
                             border: Border.all(width: 1),
                           ),
-                          child:  Center(child: Icon(Icons.remove_outlined),),
+                          child: const Center(child: Icon(Icons.remove_outlined),),
                         ),
                       ),
                       const SizedBox(width: 10,),
@@ -115,7 +172,7 @@ class _CartPageState extends State<CartPage> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                              quantity ++ ;
+                            _itemQuantities["$title"] = quantity + 1;
                           });
                         },
                         child: Container(
