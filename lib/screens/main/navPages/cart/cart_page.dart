@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:foodprime/theme/style.dart';
+import 'package:foodprime/widgets/button_container_widget.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
@@ -68,6 +69,7 @@ class _CartPageState extends State<CartPage> {
                 // const SizedBox(height: 25,),
               ],
             ),
+            const SizedBox(height: 60,),
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -75,14 +77,33 @@ class _CartPageState extends State<CartPage> {
                 Text("2", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),)
               ],
             ),
-            const SizedBox(height: 25,),
+            const SizedBox(height: 10,),
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Items",  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold ),),
-                Text("2", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),)
+                Text("Delivery Fee",  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold ),),
+                Text("\$0.00", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),)
               ],
             ),
+            const SizedBox(height: 10,),
+            Container(
+              width: double.infinity,
+              height: 1,
+              color: Colors.grey[350],
+            ),
+            const SizedBox(height: 10,),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Total",  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold ),),
+                Text("\$112.00", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),)
+              ],
+            ),
+            const SizedBox(height: 30,),
+            ButtonContainerWidget(title: "Checkout", onTap: (){
+             Navigator.push(context, MaterialPageRoute(builder: (_) => PaymentPage()));
+            },),
+            const SizedBox(height: 30,),
           ],
         ),
       ),
