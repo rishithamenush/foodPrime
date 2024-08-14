@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:foodprime/theme/style.dart';
 import 'package:foodprime/widgets/button_container_widget.dart';
 
+import '../../../payment/payment_screen.dart';
+
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
 
@@ -101,7 +103,7 @@ class _CartPageState extends State<CartPage> {
             ),
             const SizedBox(height: 30,),
             ButtonContainerWidget(title: "Checkout", onTap: (){
-             Navigator.push(context, MaterialPageRoute(builder: (_) => PaymentPage()));
+             Navigator.push(context, MaterialPageRoute(builder: (_) => PaymentScreen()));
             },),
             const SizedBox(height: 30,),
           ],
