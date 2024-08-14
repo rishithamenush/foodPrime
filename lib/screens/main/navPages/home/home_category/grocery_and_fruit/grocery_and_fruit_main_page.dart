@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../../theme/style.dart';
 import '../../../../../search/search_page.dart';
+import '../../../../../search/search_widget.dart';
 
 class GroceryAndFruitMainPage extends StatefulWidget {
   const GroceryAndFruitMainPage({super.key});
@@ -36,17 +37,39 @@ class _GroceryAndFruitMainPageState extends State<GroceryAndFruitMainPage> {
           height: 50,
         ),
       ),
+      
+      
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-                child: SearchWidget(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => SearchPage() ));
-                  }
-                ) )
+            Row(
+              children: [
+                Expanded(
+                  child: SearchWidget(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => SearchPage() ));
+                    }
+                  ),
+                ),
+                const SizedBox(width: 10,),
+                Container(
+                  width: 40,
+                  height: 40,
+                  decoration: const BoxDecoration(
+                    color: primaryColorED6E1B,
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Center(
+                    child: Icon(
+                      Icons.settings_voice,
+                      color: whiteColor,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
