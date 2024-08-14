@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +15,7 @@ class GroceryAndFruitMainPage extends StatefulWidget {
 }
 
 class _GroceryAndFruitMainPageState extends State<GroceryAndFruitMainPage> {
+  int _currentSelectedCategory = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,8 +40,8 @@ class _GroceryAndFruitMainPageState extends State<GroceryAndFruitMainPage> {
           height: 50,
         ),
       ),
-      
-      
+
+
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
@@ -70,7 +73,74 @@ class _GroceryAndFruitMainPageState extends State<GroceryAndFruitMainPage> {
                 ),
               ],
             ),
+            const SizedBox(
+              height: 30,
+            ),
+            const Text("Categories", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                _singleCategoryItemWidget(
+                  title: "Fruits",
+                  color: _currentSelectedCategory == 0
+                    ? primaryColorED6E1B
+                      : Colors.grey[400] ?? Colors.grey,
+                  onTap: (){
+                    setState((){
+                      _currentSelectedCategory = 0;
+                });
+                }
+                ),
+                _singleCategoryItemWidget(
+                    title: "Vegitables",
+                    color: _currentSelectedCategory == 1
+                        ? primaryColorED6E1B
+                        : Colors.grey[400] ?? Colors.grey,
+                    onTap: (){
+                      setState((){
+                        _currentSelectedCategory = 1;
+                      });
+                    }
+                ),
+                _singleCategoryItemWidget(
+                    title: "Kitchen",
+                    color: _currentSelectedCategory == 2
+                        ? primaryColorED6E1B
+                        : Colors.grey[400] ?? Colors.grey,
+                    onTap: (){
+                      setState((){
+                        _currentSelectedCategory = 2;
+                      });
+                    }
+                ),
+              ],
+            )
           ],
+        ),
+      ),
+    );
+  }
+
+  _singleCategoryItemWidget({required VoidCallback onTap, required Color color, required String title}){
+    return Expanded(
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 5),
+          width: 110,
+          height: 40,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20), color: color,
+          ),
+          child: Center(
+            child: Text(
+              "$title",
+              style: const TextStyle(color: whiteColor),
+            ),
+          ),
         ),
       ),
     );
