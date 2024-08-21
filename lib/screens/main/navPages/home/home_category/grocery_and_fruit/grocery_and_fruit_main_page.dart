@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:foodprime/data/food_prime_data.dart';
 
 import '../../../../../../theme/style.dart';
 import '../../../../../search/search_page.dart';
@@ -117,7 +118,11 @@ class _GroceryAndFruitMainPageState extends State<GroceryAndFruitMainPage> {
                     }
                 ),
               ],
-            )
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            _switchCategoryOnSelectedIndex(_currentSelectedCategory)
           ],
         ),
       ),
@@ -143,6 +148,37 @@ class _GroceryAndFruitMainPageState extends State<GroceryAndFruitMainPage> {
           ),
         ),
       ),
+    );
+  }
+  _switchCategoryOnSelectedIndex(int index){
+    switch(index){
+      case 0:
+        {
+          return _buildFruitsGridView();
+        }
+      case 1:
+        {
+          return _buildVegitablesGridView();
+        }
+      case 2:
+        {
+          return _buildKithenGridView();
+        }
+    }
+  }
+  // Fruit Grid View
+  _buildFruitsGridView(){
+    return Expanded(
+        child: GridView(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, childAspectRatio: 0.8,),
+          children: FRUIT_CATEGORY_LIST.map((e){
+            return Column(
+              children: [
+
+              ],
+            )
+          }).toList(),
+        )
     );
   }
 }
