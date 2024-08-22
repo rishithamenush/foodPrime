@@ -177,6 +177,12 @@ class _FoodPageState extends State<FoodPage> {
     }
   }
 
+  _buildSpecialBurgerList(){
+    return Container(
+      height: 250,
+    );
+  }
+
   //Switch Popular List
   _switchPopularCategoryOnSelectedIndex(int index){
     switch(index){
