@@ -183,10 +183,119 @@ class _GroceryAndFruitMainPageState extends State<GroceryAndFruitMainPage> {
                       Image.asset(
                         "assets/${fruit['image']}",
                         fit: BoxFit.cover,
+                      ),
+                      Positioned(
+                        bottom: 20,
+                        right: 20,
+                        child: Container(
+                          width: 20,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.red
+                          ),
+                          child: Center(
+                            child: Text(
+                              "${fruit['price']}",
+                              style: const TextStyle(color:whiteColor),
+                            ),
+                          ),
+                        ),
                       )
                     ],
                   ),
-                )
+                ),
+                Text("${fruit['title']}")
+              ],
+            );
+          }).toList(),
+        )
+    );
+  }
+  _buildVegitablesGridView(){
+    return Expanded(
+        child: GridView(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, childAspectRatio: 0.8,),
+          children: VEGETABLES_CATEGORY_LIST.map((fruit){
+            return Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Stack(
+                    children: [
+                      Image.asset(
+                        "assets/${fruit['image']}",
+                        fit: BoxFit.cover,
+                      ),
+                      Positioned(
+                        bottom: 20,
+                        right: 20,
+                        child: Container(
+                          width: 20,
+                          height: 20,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.red
+                          ),
+                          child: Center(
+                            child: Text(
+                              "${fruit['price']}",
+                              style: const TextStyle(color:whiteColor),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Text("${fruit['title']}")
+              ],
+            );
+          }).toList(),
+        )
+    );
+  }
+  _buildKithenGridView(){
+    return Expanded(
+        child: GridView(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, childAspectRatio: 0.8,),
+          children: KITCHEN_CATEGORY_LIST.map((fruit){
+            return Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Stack(
+                    children: [
+                      Image.asset(
+                        "assets/${fruit['image']}",
+                        fit: BoxFit.cover,
+                      ),
+                      Positioned(
+                        bottom: 20,
+                        right: 20,
+                        child: Container(
+                          width: 20,
+                          height: 20,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.red
+                          ),
+                          child: Center(
+                            child: Text(
+                              "${fruit['price']}",
+                              style: const TextStyle(color:whiteColor),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Text("${fruit['title']}")
               ],
             );
           }).toList(),
