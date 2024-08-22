@@ -171,12 +171,24 @@ class _GroceryAndFruitMainPageState extends State<GroceryAndFruitMainPage> {
     return Expanded(
         child: GridView(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, childAspectRatio: 0.8,),
-          children: FRUIT_CATEGORY_LIST.map((e){
+          children: FRUIT_CATEGORY_LIST.map((fruit){
             return Column(
               children: [
-
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Stack(
+                    children: [
+                      Image.asset(
+                        "assets/${fruit['image']}",
+                        fit: BoxFit.cover,
+                      )
+                    ],
+                  ),
+                )
               ],
-            )
+            );
           }).toList(),
         )
     );
