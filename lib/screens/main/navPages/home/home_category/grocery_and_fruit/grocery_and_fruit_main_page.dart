@@ -162,7 +162,7 @@ class _GroceryAndFruitMainPageState extends State<GroceryAndFruitMainPage> {
         }
       case 2:
         {
-          return _buildKithenGridView();
+          return _buildKitchenGridView();
         }
     }
   }
@@ -212,11 +212,13 @@ class _GroceryAndFruitMainPageState extends State<GroceryAndFruitMainPage> {
         )
     );
   }
+
+  // Vegetable Grid View
   _buildVegitablesGridView(){
     return Expanded(
         child: GridView(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, childAspectRatio: 0.8,),
-          children: VEGETABLES_CATEGORY_LIST.map((fruit){
+          children: VEGETABLES_CATEGORY_LIST.map((vegitable){
             return Column(
               children: [
                 Container(
@@ -226,7 +228,7 @@ class _GroceryAndFruitMainPageState extends State<GroceryAndFruitMainPage> {
                   child: Stack(
                     children: [
                       Image.asset(
-                        "assets/${fruit['image']}",
+                        "assets/${vegitable['image']}",
                         fit: BoxFit.cover,
                       ),
                       Positioned(
@@ -241,7 +243,7 @@ class _GroceryAndFruitMainPageState extends State<GroceryAndFruitMainPage> {
                           ),
                           child: Center(
                             child: Text(
-                              "${fruit['price']}",
+                              "${vegitable['price']}",
                               style: const TextStyle(color:whiteColor),
                             ),
                           ),
@@ -250,18 +252,20 @@ class _GroceryAndFruitMainPageState extends State<GroceryAndFruitMainPage> {
                     ],
                   ),
                 ),
-                Text("${fruit['title']}")
+                Text("${vegitable['title']}")
               ],
             );
           }).toList(),
         )
     );
   }
-  _buildKithenGridView(){
+
+  //Kitchen Grid View
+  _buildKitchenGridView(){
     return Expanded(
         child: GridView(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, childAspectRatio: 0.8,),
-          children: KITCHEN_CATEGORY_LIST.map((fruit){
+          children: KITCHEN_CATEGORY_LIST.map((kitchen){
             return Column(
               children: [
                 Container(
@@ -271,7 +275,7 @@ class _GroceryAndFruitMainPageState extends State<GroceryAndFruitMainPage> {
                   child: Stack(
                     children: [
                       Image.asset(
-                        "assets/${fruit['image']}",
+                        "assets/${kitchen['image']}",
                         fit: BoxFit.cover,
                       ),
                       Positioned(
@@ -286,7 +290,7 @@ class _GroceryAndFruitMainPageState extends State<GroceryAndFruitMainPage> {
                           ),
                           child: Center(
                             child: Text(
-                              "${fruit['price']}",
+                              "${kitchen['price']}",
                               style: const TextStyle(color:whiteColor),
                             ),
                           ),
@@ -295,11 +299,12 @@ class _GroceryAndFruitMainPageState extends State<GroceryAndFruitMainPage> {
                     ],
                   ),
                 ),
-                Text("${fruit['title']}")
+                Text("${kitchen['title']}")
               ],
             );
           }).toList(),
         )
     );
   }
+
 }
