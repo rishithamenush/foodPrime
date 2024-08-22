@@ -188,7 +188,7 @@ class _GroceryAndFruitMainPageState extends State<GroceryAndFruitMainPage> {
                         bottom: 20,
                         right: 20,
                         child: Container(
-                          width: 20,
+                          width: 40,
                           height: 20,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
@@ -233,7 +233,7 @@ class _GroceryAndFruitMainPageState extends State<GroceryAndFruitMainPage> {
                         bottom: 20,
                         right: 20,
                         child: Container(
-                          width: 20,
+                          width: 40,
                           height: 20,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
@@ -278,7 +278,7 @@ class _GroceryAndFruitMainPageState extends State<GroceryAndFruitMainPage> {
                         bottom: 20,
                         right: 20,
                         child: Container(
-                          width: 20,
+                          width: 40,
                           height: 20,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
