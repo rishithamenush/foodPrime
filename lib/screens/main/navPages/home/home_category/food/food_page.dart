@@ -131,7 +131,7 @@ class _FoodPageState extends State<FoodPage> {
           const SizedBox(
             height: 20,
           ),
-          _switchPopularCategoryOnSelectedIndex(_currentSelectedCategory),
+          // _switchPopularCategoryOnSelectedIndex(_currentSelectedCategory),
 
         ],
       ),
@@ -335,20 +335,19 @@ class _FoodPageState extends State<FoodPage> {
   }
 
   //Switch Popular List
-  _switchPopularCategoryOnSelectedIndex(int index){
-    switch(index){
-      case 0:
-        {
-          return _buildPopularBurgerList();
-        }
-      case 1:
-        {
-          return _buildPopularPizzaList();
-        }
-      case 2:
-        {
-          return _buildPopularSandwichList();
-        }
-    }
+  // _switchPopularCategoryOnSelectedIndex(int index){
+  //   switch(index){
+  //     case 0:
+  //       {
+  //         return _buildPopularBurgerList();
+  //       }
+  //     case 1:
+  //       {
+  //         return _buildPopularPizzaList();
+  //       }
+  //     case 2:
+  //       {
+  //         return _buildPopularSandwichList();
+  //       }
+  //   }
   }
-}
