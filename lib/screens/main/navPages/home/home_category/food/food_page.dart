@@ -379,6 +379,19 @@ class _FoodPageState extends State<FoodPage> {
                         ),
                         child: Image.asset("assets/${burger['image']}"),
                       ),
+                    Positioned(
+                      bottom: 20,
+                      right: 20,
+                      child: Container(
+                        width: 50,
+                        height: 30,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: redColor
+                        ),
+                        child: const Center(child: Text("\$5", style:TextStyle(color: Colors.white) ,),),
+                      ),
+                    )
                   ],
                 )
               ],
@@ -405,6 +418,19 @@ class _FoodPageState extends State<FoodPage> {
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: Image.asset("assets/${pizza['image']}"),
+                    ),
+                    Positioned(
+                      bottom: 20,
+                      right: 20,
+                      child: Container(
+                        width: 50,
+                        height: 30,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: redColor
+                        ),
+                        child: const Center(child: Text("\$5", style:TextStyle(color: Colors.white) ,),),
+                      ),
                     )
                   ],
                 )
@@ -432,6 +458,19 @@ class _FoodPageState extends State<FoodPage> {
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: Image.asset("assets/${sandwich['image']}"),
+                    ),
+                    Positioned(
+                      bottom: 20,
+                      right: 20,
+                      child: Container(
+                        width: 50,
+                        height: 30,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: redColor
+                        ),
+                        child: const Center(child: Text("\$5", style:TextStyle(color: Colors.white) ,),),
+                      ),
                     )
                   ],
                 )
