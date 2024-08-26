@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:foodprime/data/food_prime_data.dart';
 
 import '../../../../../../theme/style.dart';
 import '../../../../../search/search_page.dart';
@@ -180,6 +181,40 @@ class _FoodPageState extends State<FoodPage> {
   _buildSpecialBurgerList(){
     return Container(
       height: 250,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children:
+          BURGER_SPECIAL_CATEGORY_LIST.map((specialBurger){
+            return Container(
+              width: 300,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Image.asset("assets/${specialBurger['image']}",fit: BoxFit.cover,),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("${specialBurger['title']},")
+                        ],
+                      )
+                    ],
+                  )
+                ],
+              ),
+            );
+          }).toList(),
+      ),
     );
   }
 
