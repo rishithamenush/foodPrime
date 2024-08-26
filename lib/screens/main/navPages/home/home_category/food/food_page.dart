@@ -42,102 +42,104 @@ class _FoodPageState extends State<FoodPage> {
         ),
       ),
 
-    body: Container(
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
+      body: SingleChildScrollView(
+        child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                child: SearchWidget(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => SearchPage() ));
-                    }
-                ),
-              ),
-              const SizedBox(width: 10,),
-              Container(
-                width: 40,
-                height: 40,
-                decoration: const BoxDecoration(
-                  color: primaryColorED6E1B,
-                  shape: BoxShape.circle,
-                ),
-                child: const Center(
-                  child: Icon(
-                    Icons.settings_voice,
-                    color: whiteColor,
+              Row(
+                children: [
+                  Expanded(
+                    child: SearchWidget(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => SearchPage() ));
+                        }
+                    ),
                   ),
-                ),
+                  const SizedBox(width: 10,),
+                  Container(
+                    width: 40,
+                    height: 40,
+                    decoration: const BoxDecoration(
+                      color: primaryColorED6E1B,
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Center(
+                      child: Icon(
+                        Icons.settings_voice,
+                        color: whiteColor,
+                      ),
+                    ),
+                  ),
+                ],
               ),
+              const SizedBox(
+                height: 30,
+              ),
+              const Text("Categories", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              const SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  _singleCategoryItemWidget(
+                      title: "Fruits",
+                      color: _currentSelectedCategory == 0
+                          ? primaryColorED6E1B
+                          : Colors.grey[400] ?? Colors.grey,
+                      onTap: (){
+                        setState((){
+                          _currentSelectedCategory = 0;
+                        });
+                      }
+                  ),
+                  _singleCategoryItemWidget(
+                      title: "Vegitables",
+                      color: _currentSelectedCategory == 1
+                          ? primaryColorED6E1B
+                          : Colors.grey[400] ?? Colors.grey,
+                      onTap: (){
+                        setState((){
+                          _currentSelectedCategory = 1;
+                        });
+                      }
+                  ),
+                  _singleCategoryItemWidget(
+                      title: "Kitchen",
+                      color: _currentSelectedCategory == 2
+                          ? primaryColorED6E1B
+                          : Colors.grey[400] ?? Colors.grey,
+                      onTap: (){
+                        setState((){
+                          _currentSelectedCategory = 2;
+                        });
+                      }
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              const Text("Today Special Offer", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+              const SizedBox(
+                height: 20,
+              ),
+              _switchSpecialCategoryOnSelectedIndex(_currentSelectedCategory),
+              const SizedBox(
+                height: 20,
+              ),
+              const Text("Today Popular Now", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+              const SizedBox(
+                height: 20,
+              ),
+              _switchPopularCategoryOnSelectedIndex(_currentSelectedCategory),
+        
             ],
           ),
-          const SizedBox(
-            height: 30,
-          ),
-          const Text("Categories", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _singleCategoryItemWidget(
-                  title: "Fruits",
-                  color: _currentSelectedCategory == 0
-                      ? primaryColorED6E1B
-                      : Colors.grey[400] ?? Colors.grey,
-                  onTap: (){
-                    setState((){
-                      _currentSelectedCategory = 0;
-                    });
-                  }
-              ),
-              _singleCategoryItemWidget(
-                  title: "Vegitables",
-                  color: _currentSelectedCategory == 1
-                      ? primaryColorED6E1B
-                      : Colors.grey[400] ?? Colors.grey,
-                  onTap: (){
-                    setState((){
-                      _currentSelectedCategory = 1;
-                    });
-                  }
-              ),
-              _singleCategoryItemWidget(
-                  title: "Kitchen",
-                  color: _currentSelectedCategory == 2
-                      ? primaryColorED6E1B
-                      : Colors.grey[400] ?? Colors.grey,
-                  onTap: (){
-                    setState((){
-                      _currentSelectedCategory = 2;
-                    });
-                  }
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          const Text("Today Special Offer", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-          const SizedBox(
-            height: 20,
-          ),
-          _switchSpecialCategoryOnSelectedIndex(_currentSelectedCategory),
-          const SizedBox(
-            height: 20,
-          ),
-          const Text("Today Popular Now", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-          const SizedBox(
-            height: 20,
-          ),
-          // _switchPopularCategoryOnSelectedIndex(_currentSelectedCategory),
-
-        ],
+        ),
       ),
-    ),
     );
   }
   _singleCategoryItemWidget({required VoidCallback onTap, required Color color, required String title}){
@@ -186,50 +188,50 @@ class _FoodPageState extends State<FoodPage> {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children:
-          BURGER_SPECIAL_CATEGORY_LIST.map((specialBurger){
-            return SizedBox(
-              width: 300,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: Image.asset("assets/${specialBurger['image']}",fit: BoxFit.cover,),
+        BURGER_SPECIAL_CATEGORY_LIST.map((specialBurger){
+          return SizedBox(
+            width: 300,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
                     ),
+                    child: Image.asset("assets/${specialBurger['image']}",fit: BoxFit.cover,),
                   ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("${specialBurger['title']},", style: const TextStyle(fontWeight: FontWeight.bold)),
-                          const SizedBox(height: 2,),
-                          Text("\$5 Delivery Fee 20 -40 min"),
-                        ],
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(right: 20),
-                        width: 30,
-                        height: 30,
-                        decoration: BoxDecoration(
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("${specialBurger['title']},", style: const TextStyle(fontWeight: FontWeight.bold)),
+                        const SizedBox(height: 2,),
+                        Text("\$5 Delivery Fee 20 -40 min"),
+                      ],
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(right: 20),
+                      width: 30,
+                      height: 30,
+                      decoration: BoxDecoration(
                           color: Colors.grey[350],
                           shape: BoxShape.circle
-                        ),
-                        child: Center(child: Text("${specialBurger['rating']}"),),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            );
-          }).toList(),
+                      ),
+                      child: Center(child: Text("${specialBurger['rating']}"),),
+                    )
+                  ],
+                )
+              ],
+            ),
+          );
+        }).toList(),
       ),
     );
   }
@@ -342,20 +344,104 @@ class _FoodPageState extends State<FoodPage> {
     );
   }
 
-  //Switch Popular List
-  // _switchPopularCategoryOnSelectedIndex(int index){
-  //   switch(index){
-  //     case 0:
-  //       {
-  //         return _buildPopularBurgerList();
-  //       }
-  //     case 1:
-  //       {
-  //         return _buildPopularPizzaList();
-  //       }
-  //     case 2:
-  //       {
-  //         return _buildPopularSandwichList();
-  //       }
-  //   }
+  // Switch Popular List
+  _switchPopularCategoryOnSelectedIndex(int index) {
+    switch (index) {
+      case 0:
+        {
+          return _buildPopularBurgerList();
+        }
+      case 1:
+        {
+          return _buildPopularPizzaList();
+        }
+      case 2:
+        {
+          return _buildPopularSandwichList();
+        }
+    }
+    }
+  _buildPopularBurgerList() {
+    return SizedBox(
+      height: 200,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: BURGER_POPULAR_CATEGORY_LIST.map((burger) {
+          return Container(
+            width: 180,
+            child: Column(
+              children: [
+                Stack(
+                  children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Image.asset("assets/${burger['image']}"),
+                      ),
+                  ],
+                )
+              ],
+            ),
+          );
+        }).toList(),
+      ),
+    );
+  }
+  _buildPopularPizzaList() {
+    return SizedBox(
+      height: 200,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: BURGER_POPULAR_CATEGORY_LIST.map((burger) {
+          return Container(
+            width: 180,
+            child: Column(
+              children: [
+                Stack(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Image.asset("assets/${burger['image']}"),
+                    )
+                  ],
+                )
+              ],
+            ),
+          );
+        }).toList(),
+      ),
+    );
+  }
+  _buildPopularSandwichList() {
+    return SizedBox(
+      height: 200,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: BURGER_POPULAR_CATEGORY_LIST.map((burger) {
+          return Container(
+            width: 180,
+            child: Column(
+              children: [
+                Stack(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Image.asset("assets/${burger['image']}"),
+                    )
+                  ],
+                )
+              ],
+            ),
+          );
+        }).toList(),
+      ),
+    );
+  }
+
+
   }
