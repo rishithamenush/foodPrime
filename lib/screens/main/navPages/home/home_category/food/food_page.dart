@@ -179,13 +179,13 @@ class _FoodPageState extends State<FoodPage> {
   }
 
   _buildSpecialBurgerList(){
-    return Container(
+    return SizedBox(
       height: 250,
       child: ListView(
         scrollDirection: Axis.horizontal,
         children:
           BURGER_SPECIAL_CATEGORY_LIST.map((specialBurger){
-            return Container(
+            return SizedBox(
               width: 300,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -205,8 +205,20 @@ class _FoodPageState extends State<FoodPage> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("${specialBurger['title']},")
+                          Text("${specialBurger['title']},", style: const TextStyle(fontWeight: FontWeight.bold)),
+                          const SizedBox(height: 2,),
+                          Text("\$5 Delivery Fee 20 -40 min")
                         ],
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(right: 20),
+                        width: 30,
+                        height: 30,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[350],
+                          shape: BoxShape.circle
+                        ),
+                        child: Center(child: Text("${specialBurger['rating']}"),),
                       )
                     ],
                   )
@@ -214,6 +226,110 @@ class _FoodPageState extends State<FoodPage> {
               ),
             );
           }).toList(),
+      ),
+    );
+  }
+
+  _buildSpecialPizzaList(){
+    return SizedBox(
+      height: 250,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children:
+        PIZZA_SPECIAL_CATEGORY_LIST.map((specialPizza){
+          return SizedBox(
+            width: 300,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Image.asset("assets/${specialPizza['image']}",fit: BoxFit.cover,),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("${specialPizza['title']},", style: const TextStyle(fontWeight: FontWeight.bold)),
+                        const SizedBox(height: 2,),
+                        Text("\$5 Delivery Fee 20 -40 min")
+                      ],
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(right: 20),
+                      width: 30,
+                      height: 30,
+                      decoration: BoxDecoration(
+                          color: Colors.grey[350],
+                          shape: BoxShape.circle
+                      ),
+                      child: Center(child: Text("${specialPizza['rating']}"),),
+                    )
+                  ],
+                )
+              ],
+            ),
+          );
+        }).toList(),
+      ),
+    );
+  }
+
+  _buildSpecialSandwichList(){
+    return SizedBox(
+      height: 250,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children:
+        SANDWICH_SPECIAL_CATEGORY_LIST.map((specialSandwich){
+          return SizedBox(
+            width: 300,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Image.asset("assets/${specialSandwich['image']}",fit: BoxFit.cover,),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("${specialSandwich['title']},", style: const TextStyle(fontWeight: FontWeight.bold)),
+                        const SizedBox(height: 2,),
+                        Text("\$5 Delivery Fee 20 -40 min")
+                      ],
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(right: 20),
+                      width: 30,
+                      height: 30,
+                      decoration: BoxDecoration(
+                          color: Colors.grey[350],
+                          shape: BoxShape.circle
+                      ),
+                      child: Center(child: Text("${specialSandwich['rating']}"),),
+                    )
+                  ],
+                )
+              ],
+            ),
+          );
+        }).toList(),
       ),
     );
   }
