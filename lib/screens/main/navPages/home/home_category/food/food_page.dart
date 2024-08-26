@@ -393,7 +393,7 @@ class _FoodPageState extends State<FoodPage> {
       height: 200,
       child: ListView(
         scrollDirection: Axis.horizontal,
-        children: BURGER_POPULAR_CATEGORY_LIST.map((burger) {
+        children: PIZZA_POPULAR_CATEGORY_LIST.map((pizza) {
           return Container(
             width: 180,
             child: Column(
@@ -404,7 +404,7 @@ class _FoodPageState extends State<FoodPage> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      child: Image.asset("assets/${burger['image']}"),
+                      child: Image.asset("assets/${pizza['image']}"),
                     )
                   ],
                 )
@@ -420,7 +420,7 @@ class _FoodPageState extends State<FoodPage> {
       height: 200,
       child: ListView(
         scrollDirection: Axis.horizontal,
-        children: BURGER_POPULAR_CATEGORY_LIST.map((burger) {
+        children: SANDWICH_POPULAR_CATEGORY_LIST.map((sandwich) {
           return Container(
             width: 180,
             child: Column(
@@ -431,7 +431,7 @@ class _FoodPageState extends State<FoodPage> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      child: Image.asset("assets/${burger['image']}"),
+                      child: Image.asset("assets/${sandwich['image']}"),
                     )
                   ],
                 )
