@@ -85,7 +85,7 @@ class _FoodPageState extends State<FoodPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   _singleCategoryItemWidget(
-                      title: "Fruits",
+                      title: "Burger",
                       color: _currentSelectedCategory == 0
                           ? primaryColorED6E1B
                           : Colors.grey[400] ?? Colors.grey,
@@ -96,7 +96,7 @@ class _FoodPageState extends State<FoodPage> {
                       }
                   ),
                   _singleCategoryItemWidget(
-                      title: "Vegitables",
+                      title: "Pizza",
                       color: _currentSelectedCategory == 1
                           ? primaryColorED6E1B
                           : Colors.grey[400] ?? Colors.grey,
@@ -107,7 +107,7 @@ class _FoodPageState extends State<FoodPage> {
                       }
                   ),
                   _singleCategoryItemWidget(
-                      title: "Kitchen",
+                      title: "Sandwich",
                       color: _currentSelectedCategory == 2
                           ? primaryColorED6E1B
                           : Colors.grey[400] ?? Colors.grey,
