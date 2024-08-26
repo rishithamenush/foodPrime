@@ -126,7 +126,9 @@ class _FoodPageState extends State<FoodPage> {
             height: 20,
           ),
           _switchSpecialCategoryOnSelectedIndex(_currentSelectedCategory),
-
+          const SizedBox(
+            height: 20,
+          ),
           const Text("Today Popular Now", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
           const SizedBox(
             height: 20,
@@ -190,11 +192,13 @@ class _FoodPageState extends State<FoodPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Image.asset("assets/${specialBurger['image']}",fit: BoxFit.cover,),
                     ),
-                    child: Image.asset("assets/${specialBurger['image']}",fit: BoxFit.cover,),
                   ),
                   const SizedBox(
                     height: 5,
@@ -207,7 +211,7 @@ class _FoodPageState extends State<FoodPage> {
                         children: [
                           Text("${specialBurger['title']},", style: const TextStyle(fontWeight: FontWeight.bold)),
                           const SizedBox(height: 2,),
-                          Text("\$5 Delivery Fee 20 -40 min")
+                          Text("\$5 Delivery Fee 20 -40 min"),
                         ],
                       ),
                       Container(
@@ -242,11 +246,13 @@ class _FoodPageState extends State<FoodPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Image.asset("assets/${specialPizza['image']}",fit: BoxFit.cover,),
                   ),
-                  child: Image.asset("assets/${specialPizza['image']}",fit: BoxFit.cover,),
                 ),
                 const SizedBox(
                   height: 5,
@@ -294,11 +300,13 @@ class _FoodPageState extends State<FoodPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Image.asset("assets/${specialSandwich['image']}",fit: BoxFit.cover,),
                   ),
-                  child: Image.asset("assets/${specialSandwich['image']}",fit: BoxFit.cover,),
                 ),
                 const SizedBox(
                   height: 5,
