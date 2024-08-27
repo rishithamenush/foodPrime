@@ -473,6 +473,24 @@ class _FoodPageState extends State<FoodPage> {
                       ),
                     )
                   ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(child: Padding(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: Text("${sandwich['title']}",overflow: TextOverflow.clip,),
+                    ),),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10.0),
+                      child: Row(
+                        children: [
+                          const Icon(Icons.star, color: Colors.amber,),
+                          Text("${sandwich['']}")
+                        ],
+                      ),
+                    ),
+                  ],
                 )
               ],
             ),
