@@ -48,11 +48,40 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
                 borderRadius: BorderRadius.circular(6),
               ),
               child: Image.asset("assets/${widget.data['image']}", fit: BoxFit.fill,),
-            )
+            ),
+            const SizedBox(height: 15,),
+            _selectQuentityWidget(),
+            const SizedBox(height: 15,)
           ],
         ),
       ),
     );
+  }
+  _selectQuentityWidget(){
+    return Center(
+      child: Container(
+        width: 130,
+        height: 40,
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: lightGreyColor,
+          boxShadow: [
+            BoxShadow(
+              offset: const Offset(0, 3),
+              spreadRadius: 1.5,
+              blurRadius: 5.5,
+              color: Colors.grey[400]!
+            )
+          ]
+        ),
+        child: Row(
+          children: [
+            GestureDetector(onTap: _decrementQuantity, child: Icon(Icons.remove_outlined),),
+          ],
+        ),
+      ),
+    )
   }
   _bottomWidget(){
     return Container(
