@@ -66,6 +66,24 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
                   ],
                 )
               ],
+            ),
+            const SizedBox(height: 10,),
+            const Text("Chicken Breast, French Fries"),
+            const SizedBox(height: 15,),
+            const Row(
+              children: [
+                Icon(Icons.calendar_today,color: primaryColorED6E1B,),
+                SizedBox(width: 10,),
+                Text("Free delivery Sunday, Aug 31 2.00 PM")
+              ],
+            ),
+            const SizedBox(height: 15,),
+            const Row(
+              children: [
+                Icon(Icons.location_on, color: primaryColorED6E1B,),
+                SizedBox(width: 10,),
+                Text("Deliver to New Yourk 10001")
+              ],
             )
 
           ],
