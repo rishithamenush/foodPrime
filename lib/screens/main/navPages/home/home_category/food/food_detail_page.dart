@@ -98,7 +98,14 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
   }
   _incrementQuantity(){
     setState(() {
-      _quantity++
+      _quantity++;
+    });
+  }
+  _decrementQuantity(){
+    setState(() {
+      if(_quantity>1){
+        _quantity--;
+      }
     });
   }
   _bottomWidget(){
