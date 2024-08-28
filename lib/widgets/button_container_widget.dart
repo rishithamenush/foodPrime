@@ -1,6 +1,3 @@
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:foodprime/theme/style.dart';
 
@@ -34,7 +31,8 @@ class ButtonContainerWidget extends StatelessWidget {
               ),
               Icon(icon, color: whiteColor, size: 15,),
             ],
-          ) : Text(title!, style: const TextStyle(color: whiteColor),),
+          ) : Text(title!, style: const TextStyle(color: whiteColor),
+          ),
         ),
       ),
     );
