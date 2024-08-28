@@ -52,7 +52,22 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
             ),
             const SizedBox(height: 15,),
             _selectQuentityWidget(),
-            const SizedBox(height: 15,)
+            const SizedBox(height: 15,),
+            
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("${widget.data}['title']", style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),),
+                Row(
+                  children: [
+                    const Icon(Icons.star,color: Colors.amber,),
+                    const SizedBox(width: 5,),
+                    Text("${widget.data['rating']}")
+                  ],
+                )
+              ],
+            )
+
           ],
         ),
       ),
