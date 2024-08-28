@@ -169,7 +169,7 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
               height: 40,
               title: "Add to cart",
               onTap: (){
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Item added in cart")));
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Item added in cart")));
                 Navigator.pop(context);
               },
             ),
