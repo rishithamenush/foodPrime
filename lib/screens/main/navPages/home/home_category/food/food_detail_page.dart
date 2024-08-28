@@ -78,6 +78,18 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
         child: Row(
           children: [
             GestureDetector(onTap: _decrementQuantity, child: Icon(Icons.remove_outlined),),
+            const SizedBox(width: 10,),
+            Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: primaryColorED6E1B,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Center(child: Text("$_quantity",style: TextStyle(),),),
+            ),
+            const SizedBox(width: 20,),
+            GestureDetector(onTap: _incrementQuantity, child: Icon(Icons.remove_outlined),),
           ],
         ),
       ),
