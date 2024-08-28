@@ -12,6 +12,7 @@ class FoodDetailPage extends StatefulWidget {
 }
 
 class _FoodDetailPageState extends State<FoodDetailPage> {
+  int _quantity = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,14 +87,19 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
                 color: primaryColorED6E1B,
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Center(child: Text("$_quantity",style: TextStyle(),),),
+              child: Center(child: Text("$_quantity",style: TextStyle(fontSize: 15, color: Colors.white),),),
             ),
             const SizedBox(width: 20,),
-            GestureDetector(onTap: _incrementQuantity, child: Icon(Icons.remove_outlined),),
+            GestureDetector(onTap: _incrementQuantity, child: Icon(Icons.add,)),
           ],
         ),
       ),
-    )
+    );
+  }
+  _incrementQuantity(){
+    setState(() {
+      _quantity++
+    });
   }
   _bottomWidget(){
     return Container(
