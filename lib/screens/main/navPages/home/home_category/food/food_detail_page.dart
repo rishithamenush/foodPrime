@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:foodprime/theme/style.dart';
@@ -57,7 +59,7 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("${widget.data}['title']", style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),),
+                Text("${widget.data['title']}",style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),),
                 Row(
                   children: [
                     const Icon(Icons.star,color: Colors.amber,),
@@ -122,7 +124,7 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
               ),
               child: Center(child: Text("$_quantity",style: TextStyle(fontSize: 15, color: Colors.white),),),
             ),
-            const SizedBox(width: 20,),
+            const SizedBox(width: 10,),
             GestureDetector(onTap: _incrementQuantity, child: Icon(Icons.add,)),
           ],
         ),
